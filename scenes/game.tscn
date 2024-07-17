@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://csiq6i8i3qfig"]
+[gd_scene load_steps=3 format=3 uid="uid://dlxnjd3sfieiv"]
 
-[ext_resource type="PackedScene" uid="uid://ce1qo3iawscr6" path="res://scenes/player.tscn" id="1_4ianf"]
-[ext_resource type="PackedScene" uid="uid://bfqauwtn8jlad" path="res://scenes/map.tscn" id="1_850xf"]
+[ext_resource type="PackedScene" uid="uid://jds60i1p05nt" path="res://scenes/player.tscn" id="1_4ianf"]
+[ext_resource type="PackedScene" uid="uid://bp0ktwgc46ks4" path="res://scenes/map.tscn" id="1_850xf"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Map" parent="." instance=ExtResource("1_850xf")]
-position = Vector2(592, 305)
-scale = Vector2(0.5, 0.5)
+position = Vector2(573, 332)
+scale = Vector2(0.75, 0.75)
 
 [node name="Player" parent="." instance=ExtResource("1_4ianf")]
-position = Vector2(622, 300)
+position = Vector2(586, 296)
+
+[node name="Player2" parent="." instance=ExtResource("1_4ianf")]
+position = Vector2(657, 309)
+team = 1
