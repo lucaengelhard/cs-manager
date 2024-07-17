@@ -26,7 +26,7 @@ func _on_navigation_agent_2d_target_reached():
 
 func get_new_target():
 	target = Vector2(randf_range(-radius, radius), randf_range(-radius, radius))
-	print(NavigationServer2D.get_maps())
+	
 	print(map)
 	return target
 	

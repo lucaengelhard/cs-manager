@@ -15,8 +15,8 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-43, 351, -63, 280, -44
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7uv30"]
-vertices = PackedVector2Array(338, 197, 346, 194, 347, 299, 326, 230, 148, 298, 148, 250, 154, 251, 156, 289, 206, 299, 197, 293, 208, 293, 198, 231, 401, 69, 408, 68, 408, 121, 401, 109, 330, 122, 326, 113, 236, 299, 236, 296)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 4, 7, 9), PackedInt32Array(10, 8, 9, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(15, 14, 16, 17), PackedInt32Array(3, 17, 16, 0), PackedInt32Array(3, 2, 18, 19), PackedInt32Array(11, 3, 19, 10)])
+vertices = PackedVector2Array(338, 197, 346, 194, 347, 299, 309, 283, 326, 230, 148, 298, 148, 250, 154, 251, 156, 289, 206, 299, 197, 293, 208, 293, 202, 283, 401, 69, 408, 68, 408, 121, 401, 109, 330, 122, 326, 113, 309, 251, 198, 231, 277, 251, 272, 250, 277, 283, 272, 283, 240, 250, 235, 249, 236, 299, 236, 296, 235, 283, 240, 283, 202, 249)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 5, 8, 10), PackedInt32Array(11, 9, 10, 12), PackedInt32Array(13, 14, 15, 16), PackedInt32Array(16, 15, 17, 18), PackedInt32Array(4, 18, 17, 0), PackedInt32Array(4, 3, 19), PackedInt32Array(20, 4, 19, 21, 22), PackedInt32Array(21, 23, 24, 22), PackedInt32Array(20, 22, 25, 26), PackedInt32Array(2, 27, 28), PackedInt32Array(29, 30, 2, 28, 11), PackedInt32Array(12, 29, 11), PackedInt32Array(12, 10, 20, 31), PackedInt32Array(26, 31, 20), PackedInt32Array(29, 26, 25, 30), PackedInt32Array(2, 30, 24), PackedInt32Array(2, 24, 23), PackedInt32Array(2, 23, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(138, 239, 138, 308, 213, 310, 215, 304, 226, 305, 226, 310, 358, 309, 356, 181, 347, 184, 341, 132, 419, 131, 418, 57, 391, 60, 391, 100, 317, 104, 316, 220, 189, 222, 187, 282, 166, 280, 164, 242)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
@@ -111,6 +111,15 @@ navigation_polygon = SubResource("NavigationPolygon_agc78")
 
 [node name="Palace" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_7uv30")
+
+[node name="Polygon2D" type="Polygon2D" parent="Palace"]
+polygon = PackedVector2Array(212, 259, 212, 273, 225, 273, 225, 259)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Palace"]
+polygon = PackedVector2Array(250, 260, 250, 273, 262, 273, 262, 260)
+
+[node name="Polygon2D3" type="Polygon2D" parent="Palace"]
+polygon = PackedVector2Array(287, 261, 287, 273, 299, 273, 299, 261)
 
 [node name="Ramp" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_p1ls0")
