@@ -12,6 +12,7 @@ script = ExtResource("1_oj84e")
 shape = SubResource("CircleShape2D_1wc5a")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+navigation_layers = 3
 debug_enabled = true
 
 [node name="VisionCone2D" parent="." instance=ExtResource("2_l6mu4")]
