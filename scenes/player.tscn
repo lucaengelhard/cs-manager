@@ -1,12 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://jds60i1p05nt"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_oj84e"]
-[ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="2_l6mu4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1wc5a"]
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="GDScript" id="GDScript_7kbfr"]
+script/source = "extends RayCast2D
+
+signal vision_ray_colliding(player: CharacterBody2D, collider: CharacterBody2D)
+
+@onready var player:= $\"..\"
+
+
+func _process(delta):
+	if is_colliding():
+		vision_ray_colliding.emit(player, get_collider())
+"
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("RayNode")]
 script = ExtResource("1_oj84e")
+RayNode = NodePath("VisionRay")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_1wc5a")
@@ -15,7 +28,11 @@ shape = SubResource("CircleShape2D_1wc5a")
 navigation_layers = 3
 debug_enabled = true
 
-[node name="VisionCone2D" parent="." instance=ExtResource("2_l6mu4")]
-angle_deg = 60
+[node name="VisionRay" type="RayCast2D" parent="."]
+visible = false
+rotation = 6.28319
+target_position = Vector2(0, 500)
+script = SubResource("GDScript_7kbfr")
 
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
+[connection signal="vision_ray_colliding" from="VisionRay" to="." method="_on_vision_ray_vision_ray_colliding"]
