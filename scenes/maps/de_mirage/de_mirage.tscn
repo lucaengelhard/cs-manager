@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3d60f2shrpna"]
+
+[ext_resource type="Script" path="res://scenes/maps/de_mirage/de_mirage.gd" id="1_v848h"]
+[ext_resource type="Texture2D" uid="uid://dnbokscyayw30" path="res://scenes/maps/de_mirage/de_mirage.png" id="2_trvb4"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tyva0"]
+outlines = Array[PackedVector2Array]([PackedVector2Array(361, 451, 395, 451, 404, 442, 404, 315, 415, 315, 415, 311, 371, 311, 371, 305, 354, 305, 354, 312, 315, 312, 315, 251, 308, 251, 308, 224, 314, 220, 314, 202, 277, 202, 275, 146, 272, 144, 280, 137, 282, 139, 310, 138, 310, 132, 316, 102, 354, 98, 355, 95, 376, 95, 375, 106, 382, 106, 382, 97, 399, 97, 399, 94, 434, 94, 434, 108, 437, 108, 437, 101, 505, 101, 504, 131, 506, 131, 506, 127, 571, 127, 573, 120, 573, 90, 621, 90, 621, 94, 625, 94, 625, 92, 657, 92, 657, 98, 659, 98, 659, 92, 698, 92, 698, 90, 731, 90, 731, 114, 724, 114, 724, 118, 780, 118, 796, 123, 796, 142, 802, 142, 802, 141, 826, 141, 827, 202, 836, 202, 835, 225, 840, 226, 840, 243, 836, 243, 836, 272, 833, 272, 833, 277, 830, 277, 830, 308, 833, 308, 833, 325, 830, 325, 830, 355, 832, 356, 832, 387, 830, 388, 830, 418, 779, 418, 779, 453, 788, 453, 788, 474, 782, 474, 782, 478, 788, 478, 788, 505, 783, 505, 783, 515, 788, 515, 788, 539, 740, 539, 740, 542, 700, 542, 700, 537, 692, 537, 692, 540, 677, 539, 677, 536, 672, 536, 672, 540, 640, 540, 640, 512, 626, 512, 626, 542, 587, 542, 584, 535, 577, 538, 576, 541, 530, 564, 526, 564, 518, 568, 521, 575, 435, 547, 434, 544, 425, 545, 399, 493, 360, 493)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="de_mirage" type="Node2D"]
+script = ExtResource("1_v848h")
+
+[node name="Levels" type="Node" parent="."]
+
+[node name="0" type="Node" parent="Levels"]
+
+[node name="Image" type="Sprite2D" parent="Levels/0"]
+position = Vector2(548, 330)
+scale = Vector2(0.675781, 0.675781)
+texture = ExtResource("2_trvb4")
+
+[node name="Nav" type="NavigationRegion2D" parent="Levels/0"]
+navigation_polygon = SubResource("NavigationPolygon_tyva0")
+
+[node name="Polygon2D" type="Polygon2D" parent="Levels/0/Nav"]
+visible = false
+polygon = PackedVector2Array(502, 314, 529, 408, 562, 407, 574, 331)
+
+[node name="Spawns" type="Node" parent="Levels/0"]
+
+[node name="CT" type="Node" parent="Levels/0/Spawns"]
+
+[node name="Node2D" type="Node2D" parent="Levels/0/Spawns/CT"]
+position = Vector2(379, 459)
+
+[node name="Node2D5" type="Node2D" parent="Levels/0/Spawns/CT"]
+position = Vector2(417, 480)
+
+[node name="Node2D2" type="Node2D" parent="Levels/0/Spawns/CT"]
+position = Vector2(379, 480)
+
+[node name="Node2D7" type="Node2D" parent="Levels/0/Spawns/CT"]
+position = Vector2(427, 451)
+
+[node name="Node2D4" type="Node2D" parent="Levels/0/Spawns/CT"]
+position = Vector2(413, 459)
+
+[node name="Node2D6" type="Node2D" parent="Levels/0/Spawns/CT"]
+position = Vector2(427, 498)
+
+[node name="Node2D3" type="Node2D" parent="Levels/0/Spawns/CT"]
+position = Vector2(417, 434)
+
+[node name="T" type="Node" parent="Levels/0/Spawns"]
+
+[node name="Node2D" type="Node2D" parent="Levels/0/Spawns/T"]
+position = Vector2(798, 207)
+
+[node name="Node2D2" type="Node2D" parent="Levels/0/Spawns/T"]
+position = Vector2(798, 221)
+
+[node name="Node2D3" type="Node2D" parent="Levels/0/Spawns/T"]
+position = Vector2(798, 235)
+
+[node name="Node2D4" type="Node2D" parent="Levels/0/Spawns/T"]
+position = Vector2(798, 252)
+
+[node name="Node2D5" type="Node2D" parent="Levels/0/Spawns/T"]
+position = Vector2(813, 252)
+
+[node name="Node2D6" type="Node2D" parent="Levels/0/Spawns/T"]
+position = Vector2(813, 235)
+
+[node name="Node2D7" type="Node2D" parent="Levels/0/Spawns/T"]
+position = Vector2(813, 221)
+
+[node name="Node2D8" type="Node2D" parent="Levels/0/Spawns/T"]
+position = Vector2(813, 207)
+
+[node name="Node2D9" type="Node2D" parent="Levels/0/Spawns/T"]
+position = Vector2(826, 221)
+
+[node name="Node2D10" type="Node2D" parent="Levels/0/Spawns/T"]
+position = Vector2(826, 235)

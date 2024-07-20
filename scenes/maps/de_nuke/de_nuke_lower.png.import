@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnbokscyayw30"
-path="res://.godot/imported/de_mirage.png-1c40f254c372bf4653a90c5aeef24519.ctex"
+uid="uid://sk2gti3xy02e"
+path="res://.godot/imported/de_nuke_lower.png-ea207f66118c01b08fc74eeec1215115.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/de_mirage.png"
-dest_files=["res://.godot/imported/de_mirage.png-1c40f254c372bf4653a90c5aeef24519.ctex"]
+source_file="res://scenes/maps/de_nuke/de_nuke_lower.png"
+dest_files=["res://.godot/imported/de_nuke_lower.png-ea207f66118c01b08fc74eeec1215115.ctex"]
 
 [params]
 

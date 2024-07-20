@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://uyj6v7g4jxt4"]
+
+[ext_resource type="Script" path="res://scenes/maps/de_nuke/de_nuke.gd" id="1_bpsoi"]
+[ext_resource type="Texture2D" uid="uid://bdoohehgnqbkf" path="res://scenes/maps/de_nuke/de_nuke.png" id="2_7s64h"]
+[ext_resource type="Texture2D" uid="uid://sk2gti3xy02e" path="res://scenes/maps/de_nuke/de_nuke_lower.png" id="3_2ob22"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_x4blt"]
+vertices = PackedVector2Array(694, 498, 668, 504, 671, 457, 692, 436, 648, 439, 648, 460, 545, 392, 555, 391, 551, 422, 542, 426, 645, 426, 645, 422, 570, 383, 570, 167, 632, 170, 634, 300, 645, 382, 646, 360, 677, 304, 683, 355)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 9, 8, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(16, 12, 15, 17), PackedInt32Array(17, 15, 18, 19)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(561, 157, 560, 381, 536, 383, 532, 436, 638, 437, 638, 473, 660, 469, 658, 518, 705, 506, 702, 426, 655, 429, 656, 369, 695, 364, 686, 295, 644, 291, 642, 161)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="de_nuke" type="Node2D"]
+visible = false
+script = ExtResource("1_bpsoi")
+
+[node name="Levels" type="Node" parent="."]
+
+[node name="-1" type="Node" parent="Levels"]
+
+[node name="Image" type="Sprite2D" parent="Levels/-1"]
+position = Vector2(548, 330)
+scale = Vector2(0.675781, 0.675781)
+texture = ExtResource("3_2ob22")
+
+[node name="Nav" type="NavigationRegion2D" parent="Levels/-1"]
+navigation_polygon = SubResource("NavigationPolygon_x4blt")
+
+[node name="Polygon2D" type="Polygon2D" parent="Levels/-1/Nav"]
+visible = false
+polygon = PackedVector2Array(566, 394, 563, 412, 649, 412, 649, 392)
+
+[node name="0" type="Node" parent="Levels"]
+
+[node name="Nav" type="NavigationRegion2D" parent="Levels/0"]
+navigation_polygon = SubResource("NavigationPolygon_x4blt")
+
+[node name="Image" type="Sprite2D" parent="Levels/0"]
+position = Vector2(548, 330)
+scale = Vector2(0.675781, 0.675781)
+texture = ExtResource("2_7s64h")
