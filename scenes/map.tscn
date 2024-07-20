@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp0ktwgc46ks4"]
+[gd_scene load_steps=5 format=3 uid="uid://bp0ktwgc46ks4"]
 
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_fxjpd"]
 [ext_resource type="Texture2D" uid="uid://dnbokscyayw30" path="res://assets/de_mirage.png" id="1_uqdjh"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_lk2ve"]
@@ -10,76 +11,103 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 4.0
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dmk0k"]
-vertices = PackedVector2Array(-60, -248, -73, -264, 58, -265, 58, -243, -42, -246, -63, -62, -50, -54, -56, -43, -71, -50, -75, -234, -72, -237, -38, -243, -49, -246)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(0, 5, 8, 9, 10), PackedInt32Array(0, 10, 1), PackedInt32Array(3, 11, 4), PackedInt32Array(0, 4, 12)])
+vertices = PackedVector2Array(54, -263, 59, -263, 58, -243, -38, -243, -42, -246, -49, -246, -60, -248, -73, -264, 54, -264, -63, -62, -50, -54, -56, -43, -71, -50, -75, -234, -72, -237)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8, 0, 4), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(6, 9, 12, 13, 14), PackedInt32Array(6, 14, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(63, -270, -78, -268, -76, -239, -80, -237, -75, -48, -56, -38, -45, -57, -59, -64, -56, -243, -50, -242, -43, -242, -39, -239, -32, -239, 62, -240)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 4.0
 
-[node name="Map" type="Node2D"]
+[node name="Map" type="Node2D" node_paths=PackedStringArray("areas", "ctSpawn", "tSpawn")]
+script = ExtResource("1_fxjpd")
+areas = NodePath("Areas")
+ctSpawn = NodePath("Areas/Spawn_CT")
+tSpawn = NodePath("Areas/Spawn_T")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_uqdjh")
 
-[node name="Level_Main" type="NavigationRegion2D" parent="."]
+[node name="Level_Data" type="CanvasGroup" parent="."]
+
+[node name="Level_Main" type="NavigationRegion2D" parent="Level_Data"]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_lk2ve")
 
-[node name="Polygon2D" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(-163, 69, -167, 86, -167, 137, -143, 137, -143, 161, -159, 161, -158, 204, -155, 204, -155, 250, -141, 255, -141, 268, -147, 268, -147, 276, -65, 276, -65, 281, -41, 280, -26, 272, -26, 251, -33, 251, -33, 168, -25, 168, -25, 149, -47, 138, -93, 139, -94, 126, -107, 126, -107, 140, -126, 140, -126, 75, -119, 75, -119, 68, -133, 68, -133, 35, -136, 35, -136, 69)
 
-[node name="Polygon2D2" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D2" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(-325, -118, -325, -115, -323, -115, -323, -80, -289, -79, -289, -113, -259, -113, -259, -118, -324, -118)
 
-[node name="Polygon2D3" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D3" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(-245, -118, -245, -114, -238, -114, -239, -98, -226, -73, -208, -73, -207, -75, -195, -75, -193, -74, -176, -74, -176, -25, -179, -25, -179, -22, -156, -22, -156, -4, -137, -4, -137, 14, -120, 14, -120, -3, -106, -3, -106, -15, -120, -15, -120, -83, -107, -83, -107, -87, -111, -87, -111, -163, -53, -163, -53, -187, -123, -187, -173, -191, -173, -118, -188, -118, -188, -116, -216, -116, -216, -118)
 
-[node name="Polygon2D4" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D4" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(-171, -243, -171, -228, -158, -228, -159, -244)
 
-[node name="Polygon2D5" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D5" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(-255, -312, -255, -302, -171, -302, -171, -283, -113, -282, -110, -233, -11, -234, -11, -162, -13, -162, -12, -143, 5, -106, 44, -106, 46, -108, 95, -108, 97, -106, 103, -106, 104, -108, 124, -108, 125, -107, 129, -105, 168, -126, 168, -166, 164, -166, 164, -203, 183, -203, 183, -217, 165, -217, 165, -232, 183, -232, 176, -287, 164, -287, 164, -309, 183, -312, 246, -312, 246, -321, 208, -321, 206, -324, 164, -324, 164, -329, 160, -329, 160, -321, 114, -321, 112, -323, 108, -323, 108, -315, 107, -314, 106, -293, 108, -291, 108, -239, -35, -239, -41, -240, -97, -241, -107, -251, -107, -294, -104, -295, -104, -302, -165, -302, -165, -310, -168, -310, -168, -305, -245, -305, -245, -313)
 
-[node name="Polygon2D6" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D6" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(-58, -145, -58, -125, -90, -125, -90, -87, -94, -87, -94, -84, -87, -84, -87, -64, -85, -64, -85, -99, -49, -99, -49, -104, -52, -106, -52, -146, -58, -146)
 
-[node name="Polygon2D7" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D7" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(-88, -27, -87, 69, -98, 69, -98, 72, -101, 72, -101, 75, -94, 75, -94, 88, -61, 88, -61, 101, -44, 101, -44, 88, -12, 88, -12, 83, -30, 82, -30, 57, -22, 57, -24, 44, -31, 44, -31, -3, -13, -3, -12, -9, -85, -9, -84, -28)
 
-[node name="Polygon2D8" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D8" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(14, -10, 14, -3, 21, -3, 21, 24, 33, 24, 33, 81, 14, 81, 14, 87, 39, 88, 38, 133, 42, 133, 42, 131, 60, 131, 59, 128, 85, 128, 85, 131, 100, 131, 101, 111, 175, 110, 176, 114, 187, 114, 189, 112, 233, 112, 232, 137, 245, 137, 244, 111, 249, 111, 249, 51, 273, 51, 273, 32, 346, 32, 353, 25, 353, -116, 348, -116, 348, -131, 351, -131, 351, -200, 355, -200, 355, -222, 342, -222, 343, -237, 324, -257, 302, -257, 302, -254, 272, -254, 272, -257, 240, -257, 216, -235, 217, -161, 224, -157, 227, -157, 227, -153, 241, -154, 241, 20, 55, 20, 55, -9)
 
-[node name="Polygon2D9" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D9" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(174, 152, 174, 178, 147, 178, 147, 211, 168, 211, 168, 249, 158, 249, 158, 285, 188, 285, 188, 274, 191, 274, 191, 260, 188, 260, 188, 221, 223, 221, 223, 217, 249, 217, 249, 220, 261, 220, 261, 217, 286, 217, 287, 220, 316, 220, 316, 104, 391, 104, 391, 85, 302, 85, 302, 178, 243, 178, 241, 176, 231, 176, 230, 178, 188, 178, 188, 152)
 
-[node name="Polygon2D10" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D10" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(213, 260, 213, 272, 224, 272, 224, 260)
 
-[node name="Polygon2D11" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D11" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(250, 261, 250, 273, 262, 273, 262, 261)
 
-[node name="Polygon2D12" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D12" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(287, 260, 287, 273, 299, 273, 299, 260)
 
-[node name="Polygon2D13" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D13" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(-80, -271, -78, -238, -11, -236, 65, -233, 66, -273)
 
-[node name="Polygon2D14" type="Polygon2D" parent="Level_Main"]
+[node name="Polygon2D14" type="Polygon2D" parent="Level_Data/Level_Main"]
 visible = false
 polygon = PackedVector2Array(-78, -102, -77, -45, -54, -35, -43, -57, -56, -63, -56, -103)
 
-[node name="Level_-1" type="NavigationRegion2D" parent="."]
+[node name="Level_-1" type="NavigationRegion2D" parent="Level_Data"]
 navigation_polygon = SubResource("NavigationPolygon_dmk0k")
 use_edge_connections = false
+
+[node name="Polygon2D" type="Polygon2D" parent="Level_Data/Level_-1"]
+visible = false
+polygon = PackedVector2Array(58, -267, 65, -267, 65, -276, -89, -275, -85, -38, -79, -37, -85, -273, 58, -272)
+
+[node name="Level_Collider" type="CanvasGroup" parent="."]
+
+[node name="Areas" type="CanvasGroup" parent="."]
+
+[node name="Spawn_CT" type="Area2D" parent="Areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Spawn_CT"]
+polygon = PackedVector2Array(-210, 142, -210, 167, -225, 183, -275, 183, -275, 238, -215, 238, -205, 262, -158, 262, -158, 141)
+disabled = true
+
+[node name="Spawn_T" type="Area2D" parent="Areas"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Areas/Spawn_T"]
+polygon = PackedVector2Array(356, -194, 355, -90, 425, -90, 426, -189, 411, -188, 410, -196)
+disabled = true
