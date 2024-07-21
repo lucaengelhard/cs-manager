@@ -12,13 +12,15 @@ enum MOVEMODE {MOUSE, RANDOM, TARGET}
 
 var is_ready := false
 
+var players: Array[Player] = []
+
 func _ready():
 	spawn_players()
 	is_ready = true
 
 func spawn_players():
 	for child in get_children():
-		child.free()
+		child.queue_free()
 	
 	
 	var current_map = get_parent().find_child("MapController").currentMap as Map
@@ -34,11 +36,13 @@ func spawn_players():
 		var spawn_point: Node2D
 		if i < 5:
 			new_player.team = TEAM.CT
+			new_player.team_name = "CT"
 			spawn_point = ct_spawn_points.points.pop_at(randi_range(0, ct_spawn_points.points.size() -1))
 			new_player.level = ct_spawn_points.level
 			ct_spawn_points.erase(spawn_point)
 		else:
 			new_player.team = TEAM.T
+			new_player.team_name = "T"
 			spawn_point =  t_spawn_points.points.pop_at(randi_range(0, t_spawn_points.points.size() -1))
 			new_player.level = t_spawn_points.level
 			t_spawn_points.erase(spawn_point)
@@ -46,6 +50,9 @@ func spawn_players():
 		new_player.global_position = spawn_point.global_position
 		new_player.movemode = MOVEMODE.MOUSE #TODO: change later
 		
+		new_player.gamertag = new_player.team_name + " Player " + str(i)
+		
+		players.append(new_player)
 		add_child(new_player)
 		
 func _on_map_controller_map_loaded(currentMap):

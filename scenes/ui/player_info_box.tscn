@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cer7y3q5adjsk"]
+
+[ext_resource type="Script" path="res://scenes/ui/player_info_box.gd" id="1_jvx6x"]
+
+[node name="PlayerInfoBox" type="Node2D"]
+script = ExtResource("1_jvx6x")
+
+[node name="gamertag" type="Label" parent="."]
+offset_right = 163.0
+offset_bottom = 23.0
+text = "default_player"
+
+[node name="health" type="Label" parent="."]
+offset_left = 163.0
+offset_right = 195.0
+offset_bottom = 23.0
+text = "100
+"

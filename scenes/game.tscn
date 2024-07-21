@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://0ktlmg5bnntc"]
+[gd_scene load_steps=5 format=3 uid="uid://0ktlmg5bnntc"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_oht35"]
 [ext_resource type="PackedScene" uid="uid://2ujmsckvisou" path="res://scenes/maps/mapcontroller.tscn" id="1_xfqy0"]
 [ext_resource type="PackedScene" uid="uid://dre58bhxm1jsy" path="res://scenes/player/player_controller.tscn" id="2_4rlpq"]
+[ext_resource type="PackedScene" uid="uid://cer7y3q5adjsk" path="res://scenes/ui/player_info_box.tscn" id="4_qkog0"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_oht35")
@@ -10,5 +11,43 @@ script = ExtResource("1_oht35")
 [node name="MapController" parent="." instance=ExtResource("1_xfqy0")]
 
 [node name="PlayerController" parent="." instance=ExtResource("2_4rlpq")]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Players" type="Node" parent="UI"]
+
+[node name="CT" type="Node2D" parent="UI/Players"]
+position = Vector2(40, 255)
+
+[node name="PlayerInfoBox" parent="UI/Players/CT" instance=ExtResource("4_qkog0")]
+
+[node name="PlayerInfoBox2" parent="UI/Players/CT" instance=ExtResource("4_qkog0")]
+position = Vector2(0, 31)
+
+[node name="PlayerInfoBox3" parent="UI/Players/CT" instance=ExtResource("4_qkog0")]
+position = Vector2(0, 64)
+
+[node name="PlayerInfoBox4" parent="UI/Players/CT" instance=ExtResource("4_qkog0")]
+position = Vector2(0, 95)
+
+[node name="PlayerInfoBox5" parent="UI/Players/CT" instance=ExtResource("4_qkog0")]
+position = Vector2(0, 128)
+
+[node name="T" type="Node2D" parent="UI/Players"]
+position = Vector2(900, 255)
+
+[node name="PlayerInfoBox" parent="UI/Players/T" instance=ExtResource("4_qkog0")]
+
+[node name="PlayerInfoBox2" parent="UI/Players/T" instance=ExtResource("4_qkog0")]
+position = Vector2(0, 31)
+
+[node name="PlayerInfoBox3" parent="UI/Players/T" instance=ExtResource("4_qkog0")]
+position = Vector2(0, 64)
+
+[node name="PlayerInfoBox4" parent="UI/Players/T" instance=ExtResource("4_qkog0")]
+position = Vector2(0, 95)
+
+[node name="PlayerInfoBox5" parent="UI/Players/T" instance=ExtResource("4_qkog0")]
+position = Vector2(0, 128)
 
 [connection signal="map_loaded" from="MapController" to="PlayerController" method="_on_map_controller_map_loaded"]

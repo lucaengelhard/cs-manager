@@ -25,7 +25,18 @@ func create_colliders():
 	for i in levels.size():
 		var level = levels[i] as Node
 		var static_body := StaticBody2D.new()
+		
 		level.add_child(static_body)
+		
+		if level.name == "0":
+			static_body.collision_layer = Utils.get_collision_layers([1])
+			static_body.collision_mask = Utils.get_collision_layers([1])
+		if level.name == "1":
+			static_body.collision_layer = Utils.get_collision_layers([3])
+			static_body.collision_mask = Utils.get_collision_layers([3])
+		if level.name == "-1":
+			static_body.collision_layer = Utils.get_collision_layers([2])
+			static_body.collision_mask = Utils.get_collision_layers([2])
 		
 		var nav_layer = level.find_child("Nav") as NavigationRegion2D
 		

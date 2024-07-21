@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://em464o5a0tn5"]
+[gd_scene load_steps=3 format=3 uid="uid://bso5l0tqifb6b"]
 
-[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_typyl"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_imsrm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_uif1p"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_tn0tn"]
 
 [node name="Player" type="CharacterBody2D"]
-motion_mode = 1
-script = ExtResource("1_typyl")
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_imsrm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_uif1p")
+shape = SubResource("CircleShape2D_tn0tn")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
